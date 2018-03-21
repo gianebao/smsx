@@ -35,6 +35,11 @@ type NexmoResponseMessage struct {
 	Network          string `json:"network,omitempty"`
 }
 
+const (
+	// NexmoResponseMessageStatusOK defines the Nexmo message status when OK
+	NexmoResponseMessageStatusOK = "0"
+)
+
 var (
 	// NexmoEndpoint defines the Nexmo ReST endpoint
 	NexmoEndpoint = "https://rest.nexmo.com/sms/json"

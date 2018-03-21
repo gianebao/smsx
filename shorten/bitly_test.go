@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
-	"net/url"
 	"testing"
 
 	"github.com/gianebao/smsx/shorten"
@@ -22,11 +21,6 @@ func TestBitly_Shorten(t *testing.T) {
 	}))
 
 	defer atServer.Close()
-
-	qs := url.Values{}
-	qs.Add("access_token", s.Username)
-	qs.Add("longUrl", s.Password)
-	qs.Add("format", "txt")
 
 	shortenServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "http://bit.ly/a234567")
